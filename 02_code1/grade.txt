@@ -1,0 +1,12 @@
+Grading at Sat Apr 27 23:37:45 UTC 2019
+Checking code1.c for legal syntax
+temp.c: In function ‘main’:
+temp.c:22:43: error: expected ‘)’ before ‘;’ token
+   printf("%d\n",max(0x451215AF,0x013591AF);
+                                           ^
+temp.c:25:1: error: expected ‘;’ before ‘}’ token
+ }
+ ^
+The code did not have legal syntax!
+
+Overall Grade: F
