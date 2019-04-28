@@ -1,0 +1,17 @@
+Grading at Sun Apr 28 12:16:26 UTC 2019
+Checking code2.c for legal syntax
+temp.c: In function ‘printTriangle’:
+temp.c:6:3: error: ‘starCount’ undeclared (first use in this function)
+   starCount = 0;
+   ^
+temp.c:6:3: note: each undeclared identifier is reported only once for each function it appears in
+temp.c:8:21: error: ‘siz’ undeclared (first use in this function)
+   for(int i = 0;i < siz;i++)
+                     ^
+temp.c:25:1: error: control reaches end of non-void function [-Werror=return-type]
+ }
+ ^
+cc1: all warnings being treated as errors
+The code did not have legal syntax!
+
+Overall Grade: F
