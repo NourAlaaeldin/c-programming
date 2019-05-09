@@ -16,15 +16,61 @@ int max (int a, int b) {
 }
 
 //Declare your rectangle structure here!
-
+typedef struct {
+  int x;
+  int y;
+  int width;
+  int height;
+}rectangle;
 
 rectangle canonicalize(rectangle r) {
+  if(r.width < 0)
+    {
+      r.width = r.width * -1;
+      r.x = r.x - r.width;
+    }
+  if(r.height < 0)
+    {
+      r.height = r.height * -1;
+      r.y = r.y - r.height;
+    }
   //WRITE THIS FUNCTION
   return r;
 }
 rectangle intersection(rectangle r1, rectangle r2) {
+
+  //creating the resultant rectangle 
+  rectangle r;
+  r1 = canonicalize(r1);
+  r2 = canonicalize(r2);
+  //get (x2,y2) of rectangle one
+  int r1_x2 = r1.x + r1.width;
+  int r1_y2 = r1.y + r1.height;
+  //get (x2,y2) of rectangle two
+  int r2_x2 = r2.x + r2.width;
+  int r2_y2 = r2.y + r2.height;
+  //get the coordinates of top right of the new rectangle
+  int r_x = min(r1_x2,r2_x2);
+  int r_y = min(r1_y2,r2_y2);
+  //get the coordinates of bottom left of the new rectangle
+  r.x = max(r1.x,r2.x);
+  r.y = max(r1.y,r2.y);
+  //checking whether the triangles intersect or not
+  int spaceX = r1.x - r2_x2;
+  int spaceY = r1.y - r2_y2;
+  int space2X = r2.x - r1_x2;
+  int space2Y = r2.y - r1_y2;
+  if((spaceX > 0) || (spaceY > 0) || (space2X > 0) || (space2Y > 0))
+    {
+      r.width = 0;
+      r.height = 0;
+      return r;
+    }
+  //getting the new width and height
+  r.width = r_x - r.x;
+  r.height = r_y - r.y;
   //WRITE THIS FUNCTION
-  return r1;
+  return r;
 }
 
 //You should not need to modify any code below this line
