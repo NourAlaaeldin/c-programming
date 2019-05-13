@@ -68,4 +68,5 @@ int main(void)
 	      savings, //initial savings in dollars
 	      working, //info about working
 	      retired); //info about being retired
+  return 0;
 }
